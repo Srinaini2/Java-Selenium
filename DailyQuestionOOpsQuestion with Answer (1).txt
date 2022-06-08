@@ -1,0 +1,88 @@
+1.What is oops stands for?
+
+Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.
+
+2.What is Polymorphism? explain types?
+The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form
+types:
+Compile-time Polymorphism--Method Overloading
+Runtime Polymorphism-- method overriding
+
+3.what is interface and example in selenium,java?
+
+Interface are design structure that directs what a class must do.It placeholder for all abstract methods and it can also support congrate methods from 1.7 version with default to allow backword compatibility. In our project ,we always start with interface so that everyone  follow the common standards for developpingmethods and variables by which we can avoid ambiguity.
+
+Example
+Selenium :WebDriver
+Java  : List ,Collection
+
+4.what is abstarct class and example?
+The abstract keyword is a non-access modifier, used for classes and methods:
+
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+
+Example:WebDriverManager
+
+5.Difference between multiple inheritance and multilevel inheritance
+
+Multiple Inheritance                          vs                     Multilevel Inheritance
+
+Multiple Inheritance is an Inheritance                      Multilevel Inheritance is an Inheritance type that inherits                                               type where a class inherits from more                       from a derived class, making that derived class a base class for a new class.                            than one base class.
+
+Multiple Inheritance is not widely                          Multilevel Inheritance is widely used.                                                                 
+used because it makes the system more complex.
+
+Multiple Inheritance has two class                          Multilevel Inheritance has three class levels namely,
+levels namely, base class and derived class.                base class, intermediate class and derived class.
+
+
+6.Is multiple inheritance possible in java?
+Java doesn’t allow multiple inheritance to avoid the ambiguity caused by it. One of the example of such problem is the diamond problem that occurs in multiple inheritance.
+But possible in Interface level
+Example:RemoteWebDriver implements WebDriver,  JavascriptExecutor, TakesScreenshot
+
+ 
+
+
+7.What is keyword for using inheritance 
+we  Using extends keyword to inherit parent to child classes.
+
+Example RemoteWebDriver----extends---ChromiumDriver
+
+8.What is the keyword to connect interface and class
+  We using  Implemets keyword to connect with class and Interface
+RemoteWebDriver ----Implements --WebDriver
+
+9.What is difference between class and interface
+
+Class
+
+Classes in Java have members - fields and methods. Each object is an instance of a class, and follows the class prototype that defines the variables and methods common to all objects. Each instance of a class must be instantiated, after it is declared. This is usually done with the keyword "new".
+
+Classes may have inheritance from other classes meaning they incherit all the properties of the parent class. This is usually done with the keyword "extends".
+
+Example: 
+
+RemoteWebDriver (This is the super class and that has most of the commonly used methods like get, findElement, findElementById, findElements, findElementsByLinkText, close, getText etc); Whereas ChromeDriver is a sub class of the RemoteWebDriver class and hence ChromeDriver extends RemoteWebDriver
+
+Other Examples
+
+RemoteWebElement, FirefoxDriver, Actions
+
+Interface
+
+An interface, or protocol as it is sometimes called, set of rules that allow unrelated objects to interact with one another, by implementing an agreed upon system of behavior. When a class implements an interface, the class agrees to implement all of the methods defined in the interface. 
+
+Interfaces are useful since they capture similiarity between non-related objects (like Car vs Auto) without forcing a class relationship. Furthermore, interfaces may consist of abstract methods. A class uses an interface by using the "implements" keyword.
+
+Example
+
+WebDriver is an interface and that has commonly abstract methods like get, findElement, findElements, close, getText etc. RemoteWebDriver implements WebDriver.
+
+Other Examples
+
+Alert, TargetLocator, WebElement
+
+
