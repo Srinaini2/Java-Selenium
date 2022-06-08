@@ -1,0 +1,147 @@
+1)What Are The Execptions Thrown By Alert,Frame ,Windows ?
+
+Alert Execptions:
+Unhandledalertexception= Execptions hierarchy of UnhandledAlertException
+
+java.lang.Object
+java.lang.Throwable
+java.lang.Exception
+java.lang.RuntimeException
+org.openqa.selenium.WebDriverException
+org.openqa.selenium.UnhandledAlertException
+Noalertpresentexception= Execptions hierarchy of NoAlertPresentException
+
+java.lang.Object
+java.lang.Throwable
+java.lang.Exception
+java.lang.RuntimeException
+org.openqa.selenium.WebDriverException
+org.openqa.selenium.NotFoundException
+org.openqa.selenium.NoAlertPresentException
+
+Frame Execptions:Execptions hierarchy of  NoSuchFrameException
+
+java.lang.Object
+java.lang.Throwable
+java.lang.Exception
+java.lang.RuntimeException
+org.openqa.selenium.WebDriverException
+org.openqa.selenium.NotFoundException
+org.openqa.selenium.NoSuchFrameException
+
+Windows Execptions:
+
+Nosuchwindowexception=Execptions hierarchy of NoSuchWindowException
+
+java.lang.Object
+java.lang.Throwable
+java.lang.Exception
+java.lang.RuntimeException
+org.openqa.selenium.WebDriverException
+org.openqa.selenium.NotFoundException
+org.openqa.selenium.NoSuchWindowException
+
+2) What are the three types of alerts? Various actions that can be performed on an alert? Can you take screen shot of an alert?
+
+There are three types of alerts
+
+Simple Alerts:
+Simple alerts just have a OK button on them. They are mainly used to display some information to the user.
+
+Confirmation Alerts:
+
+This alert comes with an option to accept or dismiss the alert.
+ 
+Prompt Alerts:
+
+In prompt alerts you get an option to add text to the alert box. 
+This is specifically used when some input is required from the user.
+
+
+Actions on the alert
+
+1) void dismiss() – The dismiss() method clicks on the “Cancel” button as soon as the pop up window appears.
+
+2) void accept() – The accept() method clicks on the “Ok” button as soon as the pop up window appears.
+
+3) String getText() – The getText() method returns the text displayed on the alert box.
+
+4) void sendKeys(String stringToSend) – The sendKeys() method enters the specified string pattern into the alert box.
+
+
+Snapshot
+Taking a snapshot in an alert is not possible in selenium
+
+
+3) How to handle the frame in Selenium Webdriver?
+
+	An inline frame acronym as iframe is used to insert another document within the current HTML document or simply a web page into a web page by enabling nesting.
+
+	1) Select iframe by id or name
+		driver.switchTo().frame(“ID of the frame“);
+		driver.switchTo().frame(“name of the frame”);
+
+	2) Locating iframe using Webelement
+		driver.switchTo().frame(driver.findElements(By.tagName(“iframe”).get(0));
+
+	3) Locating iframe using index
+		driver.switchTo().frame(0);
+
+4) Assume you are within a frame. Explain how can you switch back from a frame.
+
+	To switch back from a frame use method defaultContent()
+
+	driver.switchTo().defaultContent();
+5) Explain the difference between getWindowHandle and getWindowHandles.
+
+	driver.getWindowHandle() – It returns a handle of the Parent Window (a unique identifier)
+	driver.getWindowHandles() – It returns a set of handles of all the windows which are currently open.
+
+6) How will you close all the windows open except the parent window?
+
+		String parentWindowHandle = driver.getWindowHandle();
+		Set<String> windowHandles = driver.getWindowHandles();
+		for (String eachHandle : windowHandles) {
+			if(!eachHandle.equals(parentWindowHandle)) {
+				driver.switchTo().window(eachHandle).close();
+			}
+		}
+
+
+
+7) To close an alert, use either dismiss (negative) or accept (positive) method.
+
+// Switch from the browser to alert 
+// switchTo() method returns TargetLocator Interface 
+// alert() method returns Alert Interface 
+Alert alert = driver.switchTo().alert();
+
+// accept the alert and accept method returns void
+alert.accept();
+
+// If the alert does not exist during switch - it throws NoAlertPresentException class.
+
+
+8)How To Move The Control To Last Window Opened By Selenium?
+
+//get all session ID for Window(Browser) opened by seleniumm
+// store all session id as string in set
+Set<String> allWindow= driver.getWindowHandles();
+
+//iteration through each session ID using for loop
+for (String eachwindow: allWindow) {
+
+//switching the contacts to next window
+driver.switchTo().window(eachwindow);
+}
+
+9)Different between parentframe and defaultcontent?
+When you are dealing with multiple iframes in your webpage, then driver.switchTo().parentFrame() is generally used to switch the control back to the parent frame.
+
+When you deal with pop-up dialog windows within your webpage, then driver.switchTo().defaultContent() is used to switch the control back to default content in the window.
+
+10)What Is Constructor In Java? Does Java Support Distructor?
+
+A Constructor Does Look Like A Method, But It's Not A Method. It's Got The Code That Runs When You Say New. The Code Will Runs When You Instantiate An Object. The Only Way To Invoke A Constructor Is With The Keyword New Followed By The Class Name, Every Class You Create Has Constructor, Even If You Don’t Write It Self
+
+No Java Don’t Have Destructor, Because Java Is A Garbage Collected Language You Cannot Predict When (Or Even If) An Object Will Be Destroyed. Hence There Is No Direct Equivalent Of A Destructor. There Is An Inherited Method Called Finalize , But This Is Called Entirely At The Discretion Of The Garbage Collector.
